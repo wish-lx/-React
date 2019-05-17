@@ -1,5 +1,5 @@
 import React from 'react'
-import {HeaderWrapper,Logo,Nav, NavItem, NavSearch, Addition, Button} from './style'
+import {HeaderWrapper,Logo,Nav, NavItem, NavSearch, Addition, Button,SearchWrapper} from './style'
 class Header extends React.Component{
     render() {
         return (
@@ -8,11 +8,15 @@ class Header extends React.Component{
                 <Nav>
                    <NavItem className='left active'>首页</NavItem>
                    <NavItem className='left'>下载App</NavItem>
+                   <NavItem className='right'>登陆</NavItem>
                    <NavItem className='right'>
                       <i className="iconfont ">&#xe636;</i>
                    </NavItem>
-                   <NavItem className='right'>登陆</NavItem>
-                   <NavSearch></NavSearch>
+                  <SearchWrapper>
+                      <NavSearch></NavSearch>
+                      <i className="iconfont ">&#xe636;</i>
+                  </SearchWrapper>
+                   
                 </Nav>
                 <Addition> 
                     <Button className="writting">
