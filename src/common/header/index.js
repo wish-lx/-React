@@ -4,8 +4,10 @@ class Header extends React.Component{
     constructor(props){
        super(props);
        this.state = {
-           foused: true
+           foused: false
        }
+       this.InputFoucs = this.InputFoucs.bind(this)
+       this.InputBlur = this.InputBlur.bind(this)
     }
     render() {
         return (
@@ -18,9 +20,9 @@ class Header extends React.Component{
                    <NavItem className='right'>
                       <i className="iconfont ">&#xe636;</i>
                    </NavItem>
-                  <SearchWrapper>
-                      <NavSearch className={this.state.foused ? 'foused' : ''}></NavSearch>
-                      <i className={this.state.foused ? 'foused iconfont' : ''}>&#xe636;</i>
+                  <SearchWrapper >
+                      <NavSearch onFocus = {this.InputFoucs}  onBlur = {this.InputBlur} className={this.state.foused ? 'foused' : ''}></NavSearch>
+                      <i className={this.state.foused ? 'foused iconfont' : 'iconfont'}>&#xe636;</i>
                   </SearchWrapper>
                    
                 </Nav>
@@ -33,6 +35,16 @@ class Header extends React.Component{
             </HeaderWrapper>
         )
     } 
+    InputFoucs() {
+        this.setState({
+            foused: true
+        })
+    }
+    InputBlur() {
+        this.setState({
+            foused: false
+        })
+    }
 }
 
 export default Header
