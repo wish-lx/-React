@@ -1,6 +1,12 @@
 import React from 'react'
 import {HeaderWrapper,Logo,Nav, NavItem, NavSearch, Addition, Button,SearchWrapper} from './style'
 class Header extends React.Component{
+    constructor(props){
+       super(props);
+       this.state = {
+           foused: true
+       }
+    }
     render() {
         return (
             <HeaderWrapper>
@@ -13,8 +19,8 @@ class Header extends React.Component{
                       <i className="iconfont ">&#xe636;</i>
                    </NavItem>
                   <SearchWrapper>
-                      <NavSearch></NavSearch>
-                      <i className="iconfont ">&#xe636;</i>
+                      <NavSearch className={this.state.foused ? 'foused' : ''}></NavSearch>
+                      <i className={this.state.foused ? 'foused iconfont' : ''}>&#xe636;</i>
                   </SearchWrapper>
                    
                 </Nav>

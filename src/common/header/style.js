@@ -50,6 +50,10 @@ export const SearchWrapper = styled.div`
         line-height: 30px;
         border-radius: 15px;
         text-align: center;
+        &.foused {
+            background: #666;
+            color: #fff;
+        }
 
     }
 `
@@ -70,6 +74,9 @@ export const NavSearch = styled.input.attrs({
    color: #666;
    &::placeholder {
        color: #999;
+   }
+   &.foused {
+       width: 250px;
    }
 `
 export  const Addition = styled.div`
