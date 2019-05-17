@@ -12,7 +12,7 @@ class Header extends React.Component{
                    <NavItem className='right'>登陆</NavItem>
                    <NavSearch></NavSearch>
                 </Nav>
-                <Addition>
+                <Addition> 
                     <Button className="writting">写文章</Button>
                     <Button className="reg">注册</Button>
                 </Addition>
