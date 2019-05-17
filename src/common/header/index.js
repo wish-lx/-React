@@ -1,5 +1,5 @@
 import React from 'react'
-import {HeaderWrapper,Logo,Nav, NavItem} from './style'
+import {HeaderWrapper,Logo,Nav, NavItem, NavSearch} from './style'
 class Header extends React.Component{
     render() {
         return (
@@ -10,6 +10,7 @@ class Header extends React.Component{
                    <NavItem className='left'>下载App</NavItem>
                    <NavItem className='right'>Aa</NavItem>
                    <NavItem className='right'>登陆</NavItem>
+                   <NavSearch></NavSearch>
                 </Nav>
             </HeaderWrapper>
         )
