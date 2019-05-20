@@ -42,7 +42,7 @@ const Header = (props) => {
 const mapStateToProps =(state)=>{
     console.log(state)
   return {
-    foused: state.header.get('foused')
+    foused: state.get('header').get('foused')
   }
 }
 // 组件把数据传给Store
