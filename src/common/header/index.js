@@ -1,7 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { CSSTransition } from 'react-transition-group';
-import { HeaderWrapper, Logo, Nav, NavItem, NavSearch, Addition, Button, SearchWrapper } from './style'
+import { HeaderWrapper, Logo, Nav, NavItem, NavSearch, Addition, Button, SearchWrapper, 
+    SearchInfo, SearchInfoTitle, SearchInfoSwitch, SearchInfoList, SearchItem } from './style'
 import * as actionCreators from './store/actionCreator'
 const Header = (props) => {
     return (
@@ -25,6 +26,19 @@ const Header = (props) => {
                             className={props.foused ? 'foused' : ''}></NavSearch>
                         </CSSTransition>
                         <i className={props.foused ? 'foused iconfont' : 'iconfont'}>&#xe636;</i>
+                       <SearchInfo>
+                           <SearchInfoTitle>
+                               热门搜索
+                               <SearchInfoSwitch>换一换</SearchInfoSwitch>
+                           </SearchInfoTitle>
+                           <SearchInfoList>
+                               <SearchItem>建树</SearchItem><SearchItem>建树</SearchItem>
+                               <SearchItem>建树</SearchItem><SearchItem>建树</SearchItem>
+                               <SearchItem>建树</SearchItem><SearchItem>建树</SearchItem>
+                               <SearchItem>建树</SearchItem><SearchItem>建树</SearchItem>
+                               <SearchItem>建树</SearchItem><SearchItem>建树</SearchItem>
+                           </SearchInfoList>
+                       </SearchInfo>
                     </SearchWrapper>
 
                 </Nav>
