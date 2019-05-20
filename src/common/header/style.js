@@ -42,6 +42,18 @@ export const NavItem = styled.div`
 export const SearchWrapper = styled.div`
     position:relative;
     float: left;
+    .alert-enter {
+       transition: all 0.2s ease-out
+    }
+    .alert-enter-active {
+         width: 240px;
+    }
+    .alert-exit {
+        transition: all 0.2s ease-out
+    }
+    .alert-exit-active {
+         width: 160px;
+    }
     .iconfont{
         position: absolute;
         right: 5px;
