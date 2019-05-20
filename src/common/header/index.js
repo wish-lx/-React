@@ -1,18 +1,11 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import { CSSTransition } from 'react-transition-group';
 import { HeaderWrapper, Logo, Nav, NavItem, NavSearch, Addition, Button, SearchWrapper } from './style'
-class Header extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            foused: false
-        }
-        this.InputFoucs = this.InputFoucs.bind(this)
-        this.InputBlur = this.InputBlur.bind(this)
-    }
-    render() {
-        return (
-            <HeaderWrapper>
+
+const Header = (props) => {
+    return (
+        <HeaderWrapper>
                 <Logo href="/" />
                 <Nav>
                     <NavItem className='left active'>首页</NavItem>
@@ -23,12 +16,15 @@ class Header extends React.Component {
                     </NavItem>
                     <SearchWrapper>
                         <CSSTransition
-                            in={this.state.foused}
+                            in={props.foused}
                             timeout={300}
                             classNames="alert">
-                            <NavSearch onFocus={this.InputFoucs} onBlur={this.InputBlur} className={this.state.foused ? 'foused' : ''}></NavSearch>
+                            <NavSearch 
+                            onFocus={props.InputFoucs} 
+                            onBlur={props.InputBlur} 
+                            className={props.foused ? 'foused' : ''}></NavSearch>
                         </CSSTransition>
-                        <i className={this.state.foused ? 'foused iconfont' : 'iconfont'}>&#xe636;</i>
+                        <i className={props.foused ? 'foused iconfont' : 'iconfont'}>&#xe636;</i>
                     </SearchWrapper>
 
                 </Nav>
@@ -39,18 +35,32 @@ class Header extends React.Component {
                     <Button className="reg">注册</Button>
                 </Addition>
             </HeaderWrapper>
-        )
-    }
-    InputFoucs() {
-        this.setState({
-            foused: true
-        })
-    }
-    InputBlur() {
-        this.setState({
-            foused: false
-        })
+    )
+}
+
+// store把数据传给组件
+const mapStateToProps =(state)=>{
+    console.log(state)
+  return {
+    foused: state.foused
+  }
+}
+// 组件把数据传给Store
+const mapDispatchToProps = (dispatch) => {
+    return {
+        InputFoucs(){
+            const action = {
+                type: 'input-foucs'
+            }
+            dispatch(action);
+        },
+        InputBlur() {
+            const action ={
+                type: 'input-blur'
+            }
+            dispatch(action);
+        }
     }
 }
 
-export default Header
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
