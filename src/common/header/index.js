@@ -76,6 +76,7 @@ const mapStateToProps =(state)=>{
 const mapDispatchToProps = (dispatch) => {
     return {
         InputFoucs(){
+            dispatch(actionCreators.getList())
             dispatch(actionCreators.inputFocus());
         },
         InputBlur() {

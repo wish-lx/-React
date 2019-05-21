@@ -3,7 +3,8 @@ import {fromJS} from 'immutable'
 // immutable库
 // immutable对象----不可更改
 const defaultState = fromJS({
-    foused: false
+    foused: false,
+    list: []
      
  })
  export default (state = defaultState, action)=>{
@@ -13,6 +14,9 @@ const defaultState = fromJS({
      }
      if(action.type === actionType.INPUT_BLUR) {
         return state.set('foused', false)
+     }
+     if(action.type === actionType.LIST) {
+        return state.set('list', action.data)
      }
      return state
  }
