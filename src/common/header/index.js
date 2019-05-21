@@ -4,6 +4,29 @@ import { CSSTransition } from 'react-transition-group';
 import { HeaderWrapper, Logo, Nav, NavItem, NavSearch, Addition, Button, SearchWrapper, 
     SearchInfo, SearchInfoTitle, SearchInfoSwitch, SearchInfoList, SearchItem } from './style'
 import * as actionCreators from './store/actionCreator'
+
+
+const getListArea = (show) => {
+     if (show) {
+         return (
+            <SearchInfo>
+            <SearchInfoTitle>
+                热门搜索
+                <SearchInfoSwitch>换一换</SearchInfoSwitch>
+            </SearchInfoTitle>
+            <SearchInfoList>
+                <SearchItem>建树</SearchItem><SearchItem>建树</SearchItem>
+                <SearchItem>建树</SearchItem><SearchItem>建树</SearchItem>
+                <SearchItem>建树</SearchItem><SearchItem>建树</SearchItem>
+                <SearchItem>建树</SearchItem><SearchItem>建树</SearchItem>
+                <SearchItem>建树</SearchItem><SearchItem>建树</SearchItem>
+            </SearchInfoList>
+        </SearchInfo>
+         )
+     }else {
+         return null
+     }
+}
 const Header = (props) => {
     return (
         <HeaderWrapper>
@@ -26,19 +49,7 @@ const Header = (props) => {
                             className={props.foused ? 'foused' : ''}></NavSearch>
                         </CSSTransition>
                         <i className={props.foused ? 'foused iconfont' : 'iconfont'}>&#xe636;</i>
-                       <SearchInfo>
-                           <SearchInfoTitle>
-                               热门搜索
-                               <SearchInfoSwitch>换一换</SearchInfoSwitch>
-                           </SearchInfoTitle>
-                           <SearchInfoList>
-                               <SearchItem>建树</SearchItem><SearchItem>建树</SearchItem>
-                               <SearchItem>建树</SearchItem><SearchItem>建树</SearchItem>
-                               <SearchItem>建树</SearchItem><SearchItem>建树</SearchItem>
-                               <SearchItem>建树</SearchItem><SearchItem>建树</SearchItem>
-                               <SearchItem>建树</SearchItem><SearchItem>建树</SearchItem>
-                           </SearchInfoList>
-                       </SearchInfo>
+                        {getListArea(props.foused)}
                     </SearchWrapper>
 
                 </Nav>
