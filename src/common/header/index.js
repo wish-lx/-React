@@ -6,61 +6,63 @@ import { HeaderWrapper, Logo, Nav, NavItem, NavSearch, Addition, Button, SearchW
 import * as actionCreators from './store/actionCreator'
 
 
-const getListArea = (show) => {
-     if (show) {
-         return (
-            <SearchInfo>
-            <SearchInfoTitle>
-                热门搜索
-                <SearchInfoSwitch>换一换</SearchInfoSwitch>
-            </SearchInfoTitle>
-            <SearchInfoList>
-                <SearchItem>建树</SearchItem><SearchItem>建树</SearchItem>
-                <SearchItem>建树</SearchItem><SearchItem>建树</SearchItem>
-                <SearchItem>建树</SearchItem><SearchItem>建树</SearchItem>
-                <SearchItem>建树</SearchItem><SearchItem>建树</SearchItem>
-                <SearchItem>建树</SearchItem><SearchItem>建树</SearchItem>
-            </SearchInfoList>
-        </SearchInfo>
-         )
-     }else {
-         return null
-     }
-}
-const Header = (props) => {
-    return (
-        <HeaderWrapper>
-                <Logo href="/" />
-                <Nav>
-                    <NavItem className='left active'>首页</NavItem>
-                    <NavItem className='left'>下载App</NavItem>
-                    <NavItem className='right'>登陆</NavItem>
-                    <NavItem className='right'>
-                        <i className="iconfont ">&#xe636;</i>
-                    </NavItem>
-                    <SearchWrapper>
-                        <CSSTransition
-                            in={props.foused}
-                            timeout={300}
-                            classNames="alert">
-                            <NavSearch 
-                            onFocus={props.InputFoucs} 
-                            onBlur={props.InputBlur} 
-                            className={props.foused ? 'foused' : ''}></NavSearch>
-                        </CSSTransition>
-                        <i className={props.foused ? 'foused iconfont' : 'iconfont'}>&#xe636;</i>
-                        {getListArea(props.foused)}
-                    </SearchWrapper>
-
-                </Nav>
-                <Addition>
-                    <Button className="writting">
-                        <i className="iconfont">&#xe615;</i>
-                        写文章</Button>
-                    <Button className="reg">注册</Button>
-                </Addition>
-            </HeaderWrapper>
-    )
+class Header extends React.Component{
+    getListArea(show){
+        if (show) {
+            return (
+               <SearchInfo>
+               <SearchInfoTitle>
+                   热门搜索
+                   <SearchInfoSwitch>换一换</SearchInfoSwitch>
+               </SearchInfoTitle>
+               <SearchInfoList>
+                   <SearchItem>建树</SearchItem><SearchItem>建树</SearchItem>
+                   <SearchItem>建树</SearchItem><SearchItem>建树</SearchItem>
+                   <SearchItem>建树</SearchItem><SearchItem>建树</SearchItem>
+                   <SearchItem>建树</SearchItem><SearchItem>建树</SearchItem>
+                   <SearchItem>建树</SearchItem><SearchItem>建树</SearchItem>
+               </SearchInfoList>
+           </SearchInfo>
+            )
+        }else {
+            return null
+        }
+    }
+    render(){
+        return (
+            <HeaderWrapper>
+                    <Logo href="/" />
+                    <Nav>
+                        <NavItem className='left active'>首页</NavItem>
+                        <NavItem className='left'>下载App</NavItem>
+                        <NavItem className='right'>登陆</NavItem>
+                        <NavItem className='right'>
+                            <i className="iconfont ">&#xe636;</i>
+                        </NavItem>
+                        <SearchWrapper>
+                            <CSSTransition
+                                in={this.props.foused}
+                                timeout={300}
+                                classNames="alert">
+                                <NavSearch 
+                                onFocus={this.props.InputFoucs} 
+                                onBlur={this.props.InputBlur} 
+                                className={this.props.foused ? 'foused' : ''}></NavSearch>
+                            </CSSTransition>
+                            <i className={this.props.foused ? 'foused iconfont' : 'iconfont'}>&#xe636;</i>
+                            {this.getListArea(this.props.foused)}
+                        </SearchWrapper>
+    
+                    </Nav>
+                    <Addition>
+                        <Button className="writting">
+                            <i className="iconfont">&#xe615;</i>
+                            写文章</Button>
+                        <Button className="reg">注册</Button>
+                    </Addition>
+                </HeaderWrapper>
+        )
+    }
 }
 
 // store把数据传给组件
