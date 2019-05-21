@@ -2,6 +2,13 @@
 import * as actionTypes from './actionTypes'
 import {fromJS} from 'immutable'
 import axios from 'axios'
+export const getListData = (data)=>({
+    type: actionTypes.LIST,
+    data: fromJS(data)
+})
+
+
+
 
 export const inputFocus = ()=>({
     type: actionTypes.INPUT_FOCUS
@@ -9,10 +16,7 @@ export const inputFocus = ()=>({
 export const inputBlur = ()=>({
     type: actionTypes.INPUT_BLUR
 })
-export const getListData = (data)=>({
-    type: actionTypes.LIST,
-    data: fromJS(data)
-})
+
 // redux-thunk 帮助返回一个函数 接受dispatch参数，发送请求
 
 export const getList = ()=>{

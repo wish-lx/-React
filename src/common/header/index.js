@@ -8,7 +8,8 @@ import * as actionCreators from './store/actionCreator'
 
 class Header extends React.Component{
     getListArea(){
-        if (this.props.foused) {
+        const {foused, list} = this.props
+        if (foused) {
             return (
                <SearchInfo>
                <SearchInfoTitle>
@@ -17,7 +18,7 @@ class Header extends React.Component{
                </SearchInfoTitle>
                <SearchInfoList>
                    {
-                   this.props.list.map((item, index)=>{
+                   list.map((item, index)=>{
                        return <SearchItem key={item}>{item}</SearchItem>
                    })
                 }
@@ -29,6 +30,8 @@ class Header extends React.Component{
         }
     }
     render(){
+        const {foused, InputFoucs, InputBlur} = this.props
+
         return (
             <HeaderWrapper>
                     <Logo href="/" />
@@ -41,15 +44,15 @@ class Header extends React.Component{
                         </NavItem>
                         <SearchWrapper>
                             <CSSTransition
-                                in={this.props.foused}
+                                in={foused}
                                 timeout={300}
                                 classNames="alert">
                                 <NavSearch 
-                                onFocus={this.props.InputFoucs} 
-                                onBlur={this.props.InputBlur} 
-                                className={this.props.foused ? 'foused' : ''}></NavSearch>
+                                onFocus={InputFoucs} 
+                                onBlur={InputBlur} 
+                                className={foused ? 'foused' : ''}></NavSearch>
                             </CSSTransition>
-                            <i className={this.props.foused ? 'foused iconfont' : 'iconfont'}>&#xe636;</i>
+                            <i className={foused ? 'foused iconfont' : 'iconfont'}>&#xe636;</i>
                             {this.getListArea()}
                         </SearchWrapper>
     
