@@ -7,8 +7,8 @@ import * as actionCreators from './store/actionCreator'
 
 
 class Header extends React.Component{
-    getListArea(show){
-        if (show) {
+    getListArea(){
+        if (this.props.foused) {
             return (
                <SearchInfo>
                <SearchInfoTitle>
@@ -16,11 +16,11 @@ class Header extends React.Component{
                    <SearchInfoSwitch>换一换</SearchInfoSwitch>
                </SearchInfoTitle>
                <SearchInfoList>
-                   <SearchItem>建树</SearchItem><SearchItem>建树</SearchItem>
-                   <SearchItem>建树</SearchItem><SearchItem>建树</SearchItem>
-                   <SearchItem>建树</SearchItem><SearchItem>建树</SearchItem>
-                   <SearchItem>建树</SearchItem><SearchItem>建树</SearchItem>
-                   <SearchItem>建树</SearchItem><SearchItem>建树</SearchItem>
+                   {
+                   this.props.list.map((item, index)=>{
+                       return <SearchItem key={item}>{item}</SearchItem>
+                   })
+                }
                </SearchInfoList>
            </SearchInfo>
             )
@@ -50,7 +50,7 @@ class Header extends React.Component{
                                 className={this.props.foused ? 'foused' : ''}></NavSearch>
                             </CSSTransition>
                             <i className={this.props.foused ? 'foused iconfont' : 'iconfont'}>&#xe636;</i>
-                            {this.getListArea(this.props.foused)}
+                            {this.getListArea()}
                         </SearchWrapper>
     
                     </Nav>
@@ -69,7 +69,8 @@ class Header extends React.Component{
 const mapStateToProps =(state)=>{
     console.log(state)
   return {
-    foused: state.get('header').get('foused')
+    foused: state.get('header').get('foused'),
+    list: state.get('header').get('list')
   }
 }
 // 组件把数据传给Store

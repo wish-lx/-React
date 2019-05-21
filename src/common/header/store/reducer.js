@@ -16,6 +16,7 @@ const defaultState = fromJS({
         return state.set('foused', false)
      }
      if(action.type === actionType.LIST) {
+         console.log(action)
         return state.set('list', action.data)
      }
      return state

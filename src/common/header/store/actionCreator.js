@@ -20,7 +20,7 @@ export const getList = ()=>{
         axios.get('/api/headerList.json').then((res)=>{
             const data = res.data
             dispatch(getListData(data.data))
-            console.log(data)
+            // console.log(data)
         }).catch((err)=>{
            console.log(err)
         })
