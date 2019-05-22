@@ -11,11 +11,14 @@ class Header extends React.Component{
         const {foused, list, page, handleMouseEnter,  handleMouseLeave, mouseIn, handleChangePage, totalPage} = this.props
         const newList = list.toJS()
         const pageList = []
-        for (let i = (page - 1) * 10; i < page * 10; i++) {
-            pageList.push(
-                <SearchItem key={newList[i]}>{newList[i]}</SearchItem> 
-            )
+        if(newList.length){
+            for (let i = (page - 1) * 10; i < page * 10; i++) {
+                pageList.push(
+                    <SearchItem key={newList[i]}>{newList[i]}</SearchItem> 
+                )
+            }
         }
+        
         if (foused || mouseIn) {
             return (
                <SearchInfo 
@@ -103,7 +106,7 @@ const mapDispatchToProps = (dispatch) => {
         },
         handleChangePage(page, totalPage){
             console.log('999')
-            // console.log(page, totalPage)
+            console.log(page, totalPage)
         //    if(page < totalPage) {
         //     dispatch(actionCreators.changePage(page + 1));
         //    } else{
