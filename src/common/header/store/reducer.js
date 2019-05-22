@@ -18,10 +18,7 @@ const defaultState = fromJS({
         case  actionType.INPUT_BLUR:
             return state.set('foused', false)
         case  actionType.LIST:
-            return state.merge({
-                list: action.data,
-                totalPag: action.totalPage
-            })
+            return state.set('list', action.data).set('totalPage', action.totalPage)
         case  actionType.MOUSE_ENTER:
             return state.set('mouseIn', true)
         case  actionType.MOUSE_LEAVE:

@@ -8,7 +8,8 @@ import * as actionCreators from './store/actionCreator'
 
 class Header extends React.Component{
     getListArea(){
-        const {foused, list, page, handleMouseEnter,  handleMouseLeave, mouseIn, handleChangePage, totalPage} = this.props
+        const {foused, list, page,totalPage, handleMouseEnter,  handleMouseLeave, mouseIn, handleChangePage, } = this.props
+        console.log('list', list)
         const newList = list.toJS()
         const pageList = []
         if(newList.length){
@@ -25,6 +26,7 @@ class Header extends React.Component{
                onMouseLeave={handleMouseLeave}
                >
                <SearchInfoTitle>
+                   热门搜索
                    <SearchInfoSwitch onClick={()=>handleChangePage(page,totalPage)}>换一批</SearchInfoSwitch>
                </SearchInfoTitle>
                <SearchInfoList>
@@ -103,9 +105,10 @@ const mapDispatchToProps = (dispatch) => {
             dispatch(actionCreators.mouseLeave());
         },
         handleChangePage(page, totalPage){
+            
             console.log(page, totalPage)
            if(page < totalPage) {
-            dispatch(actionCreators.changePage(page + 1));
+            dispatch(actionCreators.changePage(++page));
            } else{
             dispatch(actionCreators.changePage(1));
            }
