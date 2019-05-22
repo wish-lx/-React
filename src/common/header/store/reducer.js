@@ -4,7 +4,9 @@ import {fromJS} from 'immutable'
 // immutable对象----不可更改
 const defaultState = fromJS({
     foused: false,
-    list: []
+    list: [],
+    page: 1,
+    totalPage: 1
      
  })
  export default (state = defaultState, action)=>{
@@ -15,7 +17,7 @@ const defaultState = fromJS({
         case  actionType.INPUT_BLUR:
             return state.set('foused', false)
         case  actionType.LIST:
-            return state.set('list', action.data)  
+            return state.set('list', action.data).set('totalPage', action.totalPage)
         default:
             return state
     }

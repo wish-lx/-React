@@ -8,7 +8,14 @@ import * as actionCreators from './store/actionCreator'
 
 class Header extends React.Component{
     getListArea(){
-        const {foused, list} = this.props
+        const {foused, list, page} = this.props
+        const newList = list.toJS()
+        const pageList = []
+        for (let i = (page - 1) * 10; i < page * 10; i++) {
+            pageList.push(
+                <SearchItem key={newList[i]}>{newList[i]}</SearchItem> 
+            )
+        }
         if (foused) {
             return (
                <SearchInfo>
@@ -17,11 +24,7 @@ class Header extends React.Component{
                    <SearchInfoSwitch>换一换</SearchInfoSwitch>
                </SearchInfoTitle>
                <SearchInfoList>
-                   {
-                   list.map((item, index)=>{
-                       return <SearchItem key={item}>{item}</SearchItem>
-                   })
-                }
+                   {pageList}
                </SearchInfoList>
            </SearchInfo>
             )
@@ -73,7 +76,8 @@ const mapStateToProps =(state)=>{
     console.log(state)
   return {
     foused: state.get('header').get('foused'),
-    list: state.get('header').get('list')
+    list: state.get('header').get('list'),
+    page: state.get('header').get('page')
   }
 }
 // 组件把数据传给Store

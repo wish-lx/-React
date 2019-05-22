@@ -2,9 +2,11 @@
 import * as actionTypes from './actionTypes'
 import {fromJS} from 'immutable'
 import axios from 'axios'
+
 export const getListData = (data)=>({
     type: actionTypes.LIST,
-    data: fromJS(data)
+    data: fromJS(data),
+    totalPage: Math.ceil(data.length / 10)
 })
 
 
