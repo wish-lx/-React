@@ -8,7 +8,7 @@ import * as actionCreators from './store/actionCreator'
 
 class Header extends React.Component{
     getListArea(){
-        const {foused, list, page, handleMouseEnter, handleMouseLeave} = this.props
+        const {foused, list, page, handleMouseEnter, handleMouseLeave, mouseIn} = this.props
         const newList = list.toJS()
         const pageList = []
         for (let i = (page - 1) * 10; i < page * 10; i++) {
@@ -16,7 +16,7 @@ class Header extends React.Component{
                 <SearchItem key={newList[i]}>{newList[i]}</SearchItem> 
             )
         }
-        if (foused) {
+        if (foused || mouseIn) {
             return (
                <SearchInfo 
                onMouseEnter={handleMouseEnter}
@@ -80,7 +80,8 @@ const mapStateToProps =(state)=>{
   return {
     foused: state.get('header').get('foused'),
     list: state.get('header').get('list'),
-    page: state.get('header').get('page')
+    page: state.get('header').get('page'),
+    mouseIn: state.get('header').get('mouseIn')
   }
 }
 // 组件把数据传给Store
