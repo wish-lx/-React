@@ -24,7 +24,7 @@ export const mouseEnter = ()=>({
 export const mouseLeave = ()=>({
     type: actionTypes.MOUSE_LEAVE
 })
-export const changePage = ()=>({
+export const changePage = (page)=>({
     type: actionTypes.CHANGE_PAGE
 })
 

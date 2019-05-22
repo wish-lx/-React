@@ -27,7 +27,6 @@ const defaultState = fromJS({
         case  actionType.MOUSE_LEAVE:
             return state.set('mouseIn', false)
         case  actionType.CHANGE_PAGE:
-
             return state.set('page', action.page)                   
         default:
             return state

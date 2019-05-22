@@ -25,8 +25,7 @@ class Header extends React.Component{
                onMouseLeave={handleMouseLeave}
                >
                <SearchInfoTitle>
-                   热门搜索
-                   <SearchInfoSwitch onclick={()=>handleChangePage(page, totalPage)}>换一批</SearchInfoSwitch>
+                   <SearchInfoSwitch onClick={()=>handleChangePage(page,totalPage)}>换一批</SearchInfoSwitch>
                </SearchInfoTitle>
                <SearchInfoList>
                    {pageList}
@@ -104,13 +103,12 @@ const mapDispatchToProps = (dispatch) => {
             dispatch(actionCreators.mouseLeave());
         },
         handleChangePage(page, totalPage){
-            console.log('999')
             console.log(page, totalPage)
-        //    if(page < totalPage) {
-        //     dispatch(actionCreators.changePage(page + 1));
-        //    } else{
-        //     dispatch(actionCreators.changePage(1));
-        //    }
+           if(page < totalPage) {
+            dispatch(actionCreators.changePage(page + 1));
+           } else{
+            dispatch(actionCreators.changePage(1));
+           }
         }
     }
 }
