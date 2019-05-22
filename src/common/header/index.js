@@ -29,7 +29,7 @@ class Header extends React.Component{
            </SearchInfo>
             )
         }else {
-            return null
+            return null 
         }
     }
     render(){
