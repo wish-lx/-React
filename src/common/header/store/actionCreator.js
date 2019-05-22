@@ -24,6 +24,9 @@ export const mouseEnter = ()=>({
 export const mouseLeave = ()=>({
     type: actionTypes.MOUSE_LEAVE
 })
+export const changePage = ()=>({
+    type: actionTypes.CHANGE_PAGE
+})
 
 // redux-thunk 帮助返回一个函数 接受dispatch参数，发送请求
 

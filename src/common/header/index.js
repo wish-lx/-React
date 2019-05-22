@@ -8,7 +8,7 @@ import * as actionCreators from './store/actionCreator'
 
 class Header extends React.Component{
     getListArea(){
-        const {foused, list, page, handleMouseEnter, handleMouseLeave, mouseIn} = this.props
+        const {foused, list, page, handleMouseEnter,  handleMouseLeave, mouseIn, handleChangePage, totalPage} = this.props
         const newList = list.toJS()
         const pageList = []
         for (let i = (page - 1) * 10; i < page * 10; i++) {
@@ -24,7 +24,7 @@ class Header extends React.Component{
                >
                <SearchInfoTitle>
                    热门搜索
-                   <SearchInfoSwitch>换一换</SearchInfoSwitch>
+                   <SearchInfoSwitch onclick={()=>handleChangePage(page, totalPage)}>换一批</SearchInfoSwitch>
                </SearchInfoTitle>
                <SearchInfoList>
                    {pageList}
@@ -81,7 +81,8 @@ const mapStateToProps =(state)=>{
     foused: state.get('header').get('foused'),
     list: state.get('header').get('list'),
     page: state.get('header').get('page'),
-    mouseIn: state.get('header').get('mouseIn')
+    mouseIn: state.get('header').get('mouseIn'),
+    totalPage: state.get('header').get('totalPage')
   }
 }
 // 组件把数据传给Store
@@ -99,6 +100,15 @@ const mapDispatchToProps = (dispatch) => {
         },
         handleMouseLeave(){
             dispatch(actionCreators.mouseLeave());
+        },
+        handleChangePage(page, totalPage){
+            console.log('999')
+            // console.log(page, totalPage)
+        //    if(page < totalPage) {
+        //     dispatch(actionCreators.changePage(page + 1));
+        //    } else{
+        //     dispatch(actionCreators.changePage(1));
+        //    }
         }
     }
 }
