@@ -18,7 +18,6 @@ class Header extends React.Component{
                 )
             }
         }
-        
         if (foused || mouseIn) {
             return (
                <SearchInfo 
