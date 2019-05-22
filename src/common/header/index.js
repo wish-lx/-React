@@ -39,8 +39,7 @@ class Header extends React.Component{
         }
     }
     render(){
-        const {foused, InputFoucs, InputBlur} = this.props
-
+        const {foused, InputFoucs, InputBlur, list} = this.props
         return (
             <HeaderWrapper>
                     <Logo href="/" />
@@ -57,7 +56,7 @@ class Header extends React.Component{
                                 timeout={300}
                                 classNames="alert">
                                 <NavSearch 
-                                onFocus={InputFoucs} 
+                                onFocus={()=>InputFoucs(list)} 
                                 onBlur={InputBlur} 
                                 className={foused ? 'foused' : ''}></NavSearch>
                             </CSSTransition>
@@ -91,8 +90,8 @@ const mapStateToProps =(state)=>{
 // 组件把数据传给Store
 const mapDispatchToProps = (dispatch) => {
     return {
-        InputFoucs(){
-            dispatch(actionCreators.getList())
+        InputFoucs(list){
+            list.size === 0 && dispatch(actionCreators.getList())
             dispatch(actionCreators.inputFocus());
         },
         InputBlur() {
@@ -105,7 +104,7 @@ const mapDispatchToProps = (dispatch) => {
             dispatch(actionCreators.mouseLeave());
         },
         handleChangePage(page, totalPage){
-            
+
             console.log(page, totalPage)
            if(page < totalPage) {
             dispatch(actionCreators.changePage(++page));
