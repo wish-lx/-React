@@ -18,6 +18,12 @@ export const inputFocus = ()=>({
 export const inputBlur = ()=>({
     type: actionTypes.INPUT_BLUR
 })
+export const mouseEnter = ()=>({
+    type: actionTypes.MOUSE_ENTER
+})
+export const mouseLeave = ()=>({
+    type: actionTypes.MOUSE_LEAVE
+})
 
 // redux-thunk 帮助返回一个函数 接受dispatch参数，发送请求
 

@@ -8,7 +8,7 @@ import * as actionCreators from './store/actionCreator'
 
 class Header extends React.Component{
     getListArea(){
-        const {foused, list, page} = this.props
+        const {foused, list, page, handleMouseEnter, handleMouseLeave} = this.props
         const newList = list.toJS()
         const pageList = []
         for (let i = (page - 1) * 10; i < page * 10; i++) {
@@ -18,7 +18,10 @@ class Header extends React.Component{
         }
         if (foused) {
             return (
-               <SearchInfo>
+               <SearchInfo 
+               onMouseEnter={handleMouseEnter}
+               onMouseLeave={handleMouseLeave}
+               >
                <SearchInfoTitle>
                    热门搜索
                    <SearchInfoSwitch>换一换</SearchInfoSwitch>
@@ -89,6 +92,12 @@ const mapDispatchToProps = (dispatch) => {
         },
         InputBlur() {
             dispatch(actionCreators.inputBlur());
+        },
+        handleMouseEnter(){
+            dispatch(actionCreators.mouseEnter());
+        },
+        handleMouseLeave(){
+            dispatch(actionCreators.mouseLeave());
         }
     }
 }
