@@ -1,9 +1,12 @@
 import React from 'react'
-
+import {HomeWrapper,HomeLeft, HomeRight} from './style'
 class Home extends React.Component{
     render(){
         return (
-            <div>home</div>
+            <HomeWrapper>
+                <HomeLeft>left</HomeLeft>
+                <HomeRight>right</HomeRight>
+            </HomeWrapper>
         )
     }
 }
