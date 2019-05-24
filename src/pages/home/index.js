@@ -1,4 +1,8 @@
 import React from 'react'
+import List from './components/List'
+import Topic from './components/Topic'
+import Recommend from './components/Recommend'
+import Writter from './components/Writter'
 import {HomeWrapper,HomeLeft, HomeRight} from './style'
 class Home extends React.Component{
     render(){
