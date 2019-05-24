@@ -3,7 +3,7 @@ import {reducer as HeaderReducers} from '../common/header/store'
 import {reducer as HomeReducers} from '../pages/home/store'
 const reducer = combineReducers({
     header: HeaderReducers,
-    Home: HomeReducers,
+    home: HomeReducers,
 
 })
 export default reducer

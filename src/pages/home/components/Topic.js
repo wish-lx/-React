@@ -9,7 +9,14 @@ class Topic extends React.Component{
                 {
                     this.props.list.map((item) => {
                         return (
-                            <TopicItem>123</TopicItem>
+                            <TopicItem key={item.get('id')}>
+                                <img
+                                   className='topic-pic'
+                                   alt="wuyiyi"
+                                   src={item.get('imgUrl')}
+                                />
+                                {item.get('title')}
+                            </TopicItem>
                         )
                     })
                 }
@@ -17,9 +24,8 @@ class Topic extends React.Component{
         )
     }
 }
-
-{/* 组件从store里面拿数据 */}
 const mapStateToProps = (state)=>{
+    console.log(state)
     return {
         list: state.get('home').get('topicList')
     }
