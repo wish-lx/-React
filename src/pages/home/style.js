@@ -10,6 +10,10 @@ export const HomeLeft = styled.div`
     width: 625px;
     margin-left: 15px;
     padding-top: 30px;
+    .banner-img{
+        width: 625px;
+        height: 270px;
+    }
 `
 export const HomeRight= styled.div`
     width: 240px;
