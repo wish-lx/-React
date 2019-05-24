@@ -76,3 +76,13 @@ export const ListInfo = styled.div`
         color: #999;
     }
 `
+export const RecommendWrapper = styled.div`
+   margin: 30px 0;
+   width: 280px;
+`
+export const RecommendItem = styled.div`
+   height: 50px;
+   width: 280px;
+   background: url(${(props)=>props.imgUrl});
+   background-size: contain;
+`
