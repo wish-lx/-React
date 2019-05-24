@@ -71,7 +71,7 @@ export const SearchInfoTitle = styled.div`
     margin-bottom: 15px;
     line-height: 20px;
     font-size: 14px;
-    color: #969696;
+    color: #969696; 
 `
 export const SearchInfoSwitch = styled.span`
     float: right;
