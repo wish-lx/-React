@@ -11,8 +11,6 @@ class Recommend extends React.Component{
                         return <RecommendItem imgUrl={item.get('imgUrl')}></RecommendItem>
                     })
                 }
-                
-                
             </RecommendWrapper>
         )
     }
