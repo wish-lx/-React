@@ -4,6 +4,7 @@ import {BrowserRouter, Route} from 'react-router-dom'
 import Header from './common/header'
 import Detail from '../src/pages/detail'
 import Home from '../src/pages/home'
+import Login from '../src/pages/login'
 import store from './store'
 function App() {
   return (
@@ -15,6 +16,8 @@ function App() {
          <Header/>
            <div>
              <Route path="/detail/:id" exact component={Detail}></Route>
+             <Route path="/login" exact component={Login}></Route>
+
              <Route path="/" exact component={Home}></Route>
            </div>
          </BrowserRouter>

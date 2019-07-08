@@ -4,6 +4,7 @@ import { CSSTransition } from 'react-transition-group';
 import { HeaderWrapper, Logo, Nav, NavItem, NavSearch, Addition, Button, SearchWrapper, 
     SearchInfo, SearchInfoTitle, SearchInfoSwitch, SearchInfoList, SearchItem } from './style'
 import * as actionCreators from './store/actionCreator'
+import {Link} from 'react-router-dom'
 // import {Link} from 'react-router-dom'
 
 class Header extends React.PureComponent{
@@ -39,7 +40,7 @@ class Header extends React.PureComponent{
         }
     }
     render(){
-        const {foused, InputFoucs, InputBlur, list} = this.props
+        const {foused, InputFoucs, InputBlur, list, login} = this.props
         return (
             <HeaderWrapper>
                 
@@ -47,7 +48,12 @@ class Header extends React.PureComponent{
                     <Nav>
                         <NavItem className='left active'>首页</NavItem>
                         <NavItem className='left'>下载App</NavItem>
-                        <NavItem className='right'>登陆</NavItem>
+                        {
+                            login ? 
+                            <NavItem className='right'>退出</NavItem>
+                            : <Link to='/login'><NavItem className='right'>登陆</NavItem></Link>
+                        }
+                        
                         <NavItem className='right'>
                             <i className="iconfont ">&#xe636;</i>
                         </NavItem>
@@ -85,7 +91,8 @@ const mapStateToProps =(state)=>{
     list: state.get('header').get('list'),
     page: state.get('header').get('page'),
     mouseIn: state.get('header').get('mouseIn'),
-    totalPage: state.get('header').get('totalPage')
+    totalPage: state.get('header').get('totalPage'),
+    login: state.getIn(['login','login'])
   }
 }
 // 组件把数据传给Store
