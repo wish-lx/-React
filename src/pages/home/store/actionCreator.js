@@ -11,6 +11,10 @@ const addHomeData = (list) => ({
     type: constans.ADD_HOME_DATA,
     list: fromJS(list)
 })
+export const toggleTopShow = (show) => ({
+    type: constans.TOGGLE_SCROLL_TOP,
+    show
+})
 // 异步操作
 export const getHomeInfo = () => {
     return (dispatch) => {

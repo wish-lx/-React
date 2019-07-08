@@ -4,9 +4,9 @@ import { CSSTransition } from 'react-transition-group';
 import { HeaderWrapper, Logo, Nav, NavItem, NavSearch, Addition, Button, SearchWrapper, 
     SearchInfo, SearchInfoTitle, SearchInfoSwitch, SearchInfoList, SearchItem } from './style'
 import * as actionCreators from './store/actionCreator'
+// import {Link} from 'react-router-dom'
 
-
-class Header extends React.Component{
+class Header extends React.PureComponent{
     getListArea(){
         const {foused, list, page,totalPage, handleMouseEnter,  handleMouseLeave, mouseIn, handleChangePage, } = this.props
         console.log('list', list)
@@ -42,6 +42,7 @@ class Header extends React.Component{
         const {foused, InputFoucs, InputBlur, list} = this.props
         return (
             <HeaderWrapper>
+                
                     <Logo href="/" />
                     <Nav>
                         <NavItem className='left active'>首页</NavItem>

@@ -10,8 +10,9 @@ function App() {
     // provider作用为： store中的数据header组件都可以获取使用  相当于传递
     <Provider store = {store}>
       <div>
-         <Header/>
+         
          <BrowserRouter>
+         <Header/>
            <div>
              <Route path="/detail" exact component={Detail}></Route>
              <Route path="/" exact component={Home}></Route>
