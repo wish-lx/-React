@@ -8,7 +8,7 @@ class Login extends React.PureComponent{
         return (
             <LoginWrapper>
                 <LoginBox>
-                    <Input placeholder='账号'/>
+                    <Input placeholder='账号' innerRef={(input) => {}}/>
                     <Input placeholder='密码'/>
                     <Button>登陆</Button>     
                 </LoginBox>
