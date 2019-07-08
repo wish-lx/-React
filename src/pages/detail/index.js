@@ -9,9 +9,9 @@ class Detail extends React.Component{
         return (
             <DetailWrapper>
                 <Header>{this.props.title}</Header>
-                <Content>
-                    {/* dangerouslySetInnerHTML={{__html: this.props.content}} */}
-                    </Content>
+                <Content
+                    dangerouslySetInnerHTML={{__html: this.props.content}}
+                    />
             </DetailWrapper>
         )
     }
