@@ -16,7 +16,9 @@ const defaultState = fromJS({
             articleList: fromJS(action.articleList),
             recommendList: fromJS(action.recommendList),
             topicList: fromJS(action.topicList)
-           })            
+           }) 
+       case constans.ADD_HOME_DATA:  
+           return state.set('articleList', state.get('articleList').concat(action.list))
         default:
             return state
     }

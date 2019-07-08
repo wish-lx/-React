@@ -8,7 +8,7 @@ class Recommend extends React.Component{
             <RecommendWrapper>
                 {
                     this.props.list.map((item)=> {
-                        return <RecommendItem imgUrl={item.get('imgUrl')}></RecommendItem>
+                        return <RecommendItem imgUrl={item.get('imgUrl')} key={item.get('id')}></RecommendItem>
                     })
                 }
             </RecommendWrapper>

@@ -5,8 +5,11 @@ import Topic from './components/Topic'
 import Recommend from './components/Recommend'
 import Writter from './components/Writter'
 import * as actionCreations from './store/actionCreator'
-import {HomeWrapper,HomeLeft, HomeRight} from './style'
+import {HomeWrapper,HomeLeft, HomeRight, BackTop} from './style'
 class Home extends React.Component{
+    handleScrollTop(){
+        window.scrollTo(0,0)
+    }
     render(){
         return (
             <HomeWrapper>
@@ -21,9 +24,11 @@ class Home extends React.Component{
                     <Recommend/>
                     <Writter/>
                 </HomeRight>
+                <BackTop onClick={this.handleScrollTop}>回到顶部</BackTop>
             </HomeWrapper>
         )
     }
+    // 当组件挂载完毕
     componentDidMount(){
         this.props.mapDispatchData()
     }
@@ -32,6 +37,7 @@ class Home extends React.Component{
 
 const mapDispatch = (dispatch) => ({
        mapDispatchData(){
+        //    创建action，并且dispatch（action）
          dispatch(actionCreations.getHomeInfo())
        } 
 })
