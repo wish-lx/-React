@@ -1,25 +1,31 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import {actionCreators} from './store'
 import {DetailWrapper, Header, Content} from './style'
 class Detail extends React.Component{
+    
     render(){
+        console.log('111', this.props.title)
         return (
             <DetailWrapper>
-                <Header>衡水中学哈哈实话实说哈哈哈哈哈哈哈哈</Header>
+                <Header>{this.props.title}</Header>
                 <Content>
-                    <img alt='ee' src="https://upload.jianshu.io/admin_banners/web_images/4677/a6d5d4ae2540976a7bd62e9db466b0301414d319.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/1250/h/540"/>
-                    <p>说到财富，财富是有圈层的，如果把财富缩减到实体资产，把人脉、健康、能力全部去掉，只剩下实体金融资产，如保险、保单、珠宝、现金等，我们一般的财富圈层分为四个层次。百万级资产是A7阶层，千万级资产是A8阶层，亿万级资产是A9阶层，10亿级阶层是A10阶层</p>
-                    <p>说到财富，财富是有圈层的，如果把财富缩减到实体资产，把人脉、健康、能力全部去掉，只剩下实体金融资产，如保险、保单、珠宝、现金等，我们一般的财富圈层分为四个层次。百万级资产是A7阶层，千万级资产是A8阶层，亿万级资产是A9阶层，10亿级阶层是A10阶层</p>
-                    <p>说到财富，财富是有圈层的，如果把财富缩减到实体资产，把人脉、健康、能力全部去掉，只剩下实体金融资产，如保险、保单、珠宝、现金等，我们一般的财富圈层分为四个层次。百万级资产是A7阶层，千万级资产是A8阶层，亿万级资产是A9阶层，10亿级阶层是A10阶层</p>
-                    <p>说到财富，财富是有圈层的，如果把财富缩减到实体资产，把人脉、健康、能力全部去掉，只剩下实体金融资产，如保险、保单、珠宝、现金等，我们一般的财富圈层分为四个层次。百万级资产是A7阶层，千万级资产是A8阶层，亿万级资产是A9阶层，10亿级阶层是A10阶层</p>
-                    <p>说到财富，财富是有圈层的，如果把财富缩减到实体资产，把人脉、健康、能力全部去掉，只剩下实体金融资产，如保险、保单、珠宝、现金等，我们一般的财富圈层分为四个层次。百万级资产是A7阶层，千万级资产是A8阶层，亿万级资产是A9阶层，10亿级阶层是A10阶层</p>
-                    <p>说到财富，财富是有圈层的，如果把财富缩减到实体资产，把人脉、健康、能力全部去掉，只剩下实体金融资产，如保险、保单、珠宝、现金等，我们一般的财富圈层分为四个层次。百万级资产是A7阶层，千万级资产是A8阶层，亿万级资产是A9阶层，10亿级阶层是A10阶层</p>
-                    <p>说到财富，财富是有圈层的，如果把财富缩减到实体资产，把人脉、健康、能力全部去掉，只剩下实体金融资产，如保险、保单、珠宝、现金等，我们一般的财富圈层分为四个层次。百万级资产是A7阶层，千万级资产是A8阶层，亿万级资产是A9阶层，10亿级阶层是A10阶层</p>
-                    <p>说到财富，财富是有圈层的，如果把财富缩减到实体资产，把人脉、健康、能力全部去掉，只剩下实体金融资产，如保险、保单、珠宝、现金等，我们一般的财富圈层分为四个层次。百万级资产是A7阶层，千万级资产是A8阶层，亿万级资产是A9阶层，10亿级阶层是A10阶层</p>
-                    <p>说到财富，财富是有圈层的，如果把财富缩减到实体资产，把人脉、健康、能力全部去掉，只剩下实体金融资产，如保险、保单、珠宝、现金等，我们一般的财富圈层分为四个层次。百万级资产是A7阶层，千万级资产是A8阶层，亿万级资产是A9阶层，10亿级阶层是A10阶层</p>
-                    <p>说到财富，财富是有圈层的，如果把财富缩减到实体资产，把人脉、健康、能力全部去掉，只剩下实体金融资产，如保险、保单、珠宝、现金等，我们一般的财富圈层分为四个层次。百万级资产是A7阶层，千万级资产是A8阶层，亿万级资产是A9阶层，10亿级阶层是A10阶层</p>
-                </Content>
+                    {/* dangerouslySetInnerHTML={{__html: this.props.content}} */}
+                    </Content>
             </DetailWrapper>
         )
     }
+    componentDidMount(){
+        this.props.getDetail()
+    }
 }
-export default Detail
+const mapState = (state) => ({
+    title: state.getIn(['detail', 'title']),
+    content: state.getIn(['detail', 'content'])
+})
+const mapDispatch = (dispatch) => ({
+    getDetail(){
+        dispatch(actionCreators.getDetail())
+    }
+})
+export default connect(mapState, mapDispatch)(Detail);
