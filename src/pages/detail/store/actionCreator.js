@@ -4,7 +4,8 @@ import * as constans from './constans'
 const changeDetail = (title, content) => ({
     type: constans.CHANGE_DETAIL,
     title,
-    content
+    content 
+    
 })
 export const getDetail = (id) => {
    return (dispatch)=>{
