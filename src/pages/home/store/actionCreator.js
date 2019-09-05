@@ -15,6 +15,9 @@ export const toggleTopShow = (show) => ({
     type: constans.TOGGLE_SCROLL_TOP,
     show
 })
+
+
+
 // 异步操作
 export const getHomeInfo = () => {
     return (dispatch) => {
